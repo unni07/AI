@@ -1,0 +1,8 @@
+DEL /F /S /Q /AH "StateMachine\*.suo"
+DEL /F /S /Q "StateMachine\*.sdf"
+DEL /F /S /Q "StateMachine\*.opensdf"
+DEL /F /S /Q "StateMachine\*.sdf"
+RMDIR /S /Q "StateMachine\Debug"
+RMDIR /S /Q "StateMachine\Release"
+RMDIR /S /Q "StateMachine\ipch"
+RMDIR /S /Q "StateMachine\.vs"
