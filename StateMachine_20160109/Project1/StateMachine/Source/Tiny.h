@@ -129,6 +129,9 @@ protected:
 public:
 
     CTiny( GameObject& owner );
+	CSoundManager * getSoundManager() { return m_pSM; }
+	CMultiAnim * getAnimation() { return m_pMA; }
+	std::vector<CTiny*> * getInstance() {return m_pv_pChars; }
     virtual ~CTiny();
     virtual HRESULT Setup( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoundManager *pSM, double dTimeCurrent );
     virtual void Cleanup();

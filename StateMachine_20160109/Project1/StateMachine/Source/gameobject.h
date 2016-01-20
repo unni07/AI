@@ -26,6 +26,7 @@
 #define OBJECT_Weapon       (1<<6)
 #define OBJECT_Item         (1<<7)
 #define OBJECT_Projectile   (1<<8)
+#define OBJECT_Feeble       (1<<9)
 
 #define GAME_OBJECT_MAX_NAME_SIZE 64
 
@@ -33,7 +34,7 @@ enum GameObjectType
 {
 	GO_Zombie,
 	GO_Player,
-	GO_Target
+	GO_Human
 };
 //Forward declarations
 class StateMachineManager;
@@ -80,8 +81,9 @@ public:
 	//Tiny
 	void CreateTiny( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoundManager *pSM, double dTimeCurrent, float red = 1.0f, float green = 1.0f, float blue = 1.0f );
 	inline CTiny& GetTiny( void )					{ ASSERTMSG(m_tiny, "GameObject::GetModel - m_tiny not set"); return( *m_tiny ); }
-	void setObjectType(const GameObjectType type);
-	const GameObjectType getObjectType() const;
+	void setObjectType(const unsigned int type);
+	const unsigned int getObjectType() const;
+	void setName(char * name);
 
 private:
 

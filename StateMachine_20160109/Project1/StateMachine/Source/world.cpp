@@ -35,6 +35,8 @@
 #include "unittest4.h"
 #include "unittest5.h"
 #include "unittest6.h"
+#include "Human.h"
+#include "FeebleZombie.h"
 
 //#define UNIT_TESTING
 
@@ -116,26 +118,66 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 
 #else
 
-	for( int i=0; i<2; i++ )
-	{
-		//Create game objects
-		char name[10] = "NPC";
-		sprintf( name, "%s%d", name, i );
-		GameObject* npc = new GameObject( g_database.GetNewObjectID(), OBJECT_NPC, name );
-		D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-		pos.x = ((float)(rand()%100)) / 100.0f;
-		pos.z = ((float)(rand()%100)) / 100.0f;
-		npc->CreateBody( 100, pos );
-		npc->CreateMovement();
-		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
-		npc->CreateStateMachineManager();
-		npc->setObjectType(GO_Target);
-		g_database.Store( *npc );
+		for (int i = 0; i<1; i++)
+		{
+			//Create game objects
+			char name[10] = "Human";
+			sprintf(name, "%s%d", name, i);
+			GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
+			D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+			pos.x = ((float)(rand() % 100)) / 100.0f;
+			pos.z = ((float)(rand() % 100)) / 100.0f;
+			npc->CreateBody(100, pos);
+			npc->CreateMovement();
+			npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
+			npc->CreateStateMachineManager();
+			//npc->setObjectType(GO_Human);
+			g_database.Store(*npc);
 
-		//Give the game object a state machine
-		npc->GetStateMachineManager()->PushStateMachine( *new Zombie( *npc ), STATE_MACHINE_QUEUE_0, TRUE );
-	}
+			//Give the game object a state machine
+			npc->GetStateMachineManager()->PushStateMachine(*new Human(*npc), STATE_MACHINE_QUEUE_0, TRUE);
+		}
 
+		for (int i = 0; i<4; i++)
+		{
+			//Create game objects
+			char name[10] = "Zombie";
+			sprintf(name, "%s%d", name, i);
+			GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_Enemy, name);
+			D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+			pos.x = ((float)(rand() % 100)) / 100.0f;
+			pos.z = ((float)(rand() % 100)) / 100.0f;
+			npc->CreateBody(100, pos);
+			npc->CreateMovement();
+			npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.0f, 1.0f, 0.0f);	//Color if needed
+			npc->CreateStateMachineManager();
+			//npc->setObjectType(GO_Zombie);
+			g_database.Store(*npc);
+
+			//Give the game object a state machine
+			npc->GetStateMachineManager()->PushStateMachine(*new Zombie(*npc, 0.1f), STATE_MACHINE_QUEUE_1, TRUE);
+		}
+
+		for (int i = 0; i < 10; i++)
+		{
+			//Create game objects
+			char name[15] = "FebleZmbie";
+			sprintf(name, "%s%d", name, i);
+			GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_Feeble, name);
+			D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+			pos.x = ((float)(rand() % 100)) / 100.0f;
+			pos.z = ((float)(rand() % 100)) / 100.0f;
+			npc->CreateBody(100, pos);
+			npc->CreateMovement();
+			npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 0.0f);	//Color if needed
+			npc->CreateStateMachineManager();
+			//npc->setObjectType(GO_Zombie);
+			g_database.Store(*npc);
+
+			//Give the game object a state machine
+			npc->GetStateMachineManager()->PushStateMachine(*new FeebleZombie(*npc, 0.50f), STATE_MACHINE_QUEUE_1, TRUE);
+
+		}
 
 #endif
 

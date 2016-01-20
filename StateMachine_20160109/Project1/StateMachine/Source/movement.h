@@ -24,9 +24,13 @@ public:
 
 	void Animate( double dTimeDelta );
 
-	void SetIdleSpeed( void );
-	void SetWalkSpeed( void );
-	void SetJogSpeed( void );
+	void SetIdleSpeed(void);
+	void SetWalkSpeed(void);
+	void SetJogSpeed(void);
+
+	void SetIdleSpeed(float);
+	void SetWalkSpeed(float);
+	void SetJogSpeed(float); 
 
 protected:
 

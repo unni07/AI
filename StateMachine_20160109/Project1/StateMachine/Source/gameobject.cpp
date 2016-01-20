@@ -35,6 +35,17 @@ GameObject::GameObject( objectID id, unsigned int type, char* name )
 	}
 }
 
+void GameObject::setName(char * name)
+{
+	if (strlen(name) < GAME_OBJECT_MAX_NAME_SIZE) {
+		strcpy(m_name, name);
+	}
+	else {
+		strcpy(m_name, "invalid_name");
+		ASSERTMSG(0, "GameObject::GameObject - name is too long");
+	}
+}
+
 GameObject::~GameObject( void )
 {
 	if(m_stateMachineManager)
@@ -148,12 +159,12 @@ void GameObject::InvalidateDeviceObjects( void )
 
 }
 
-const GameObjectType GameObject::getObjectType() const
+const unsigned int GameObject::getObjectType() const
 {
-	return type;
+	return m_type;
 }
 
-void GameObject::setObjectType(const GameObjectType type_)
+void GameObject::setObjectType(const unsigned int type_)
 {
-	type = type_;
+	m_type = type_;
 }

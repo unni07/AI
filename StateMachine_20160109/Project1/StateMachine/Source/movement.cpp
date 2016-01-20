@@ -84,3 +84,21 @@ void Movement::SetJogSpeed( void )
 	m_owner->GetBody().SetSpeed( m_speedJog  );
 	m_owner->GetTiny().SetMoveKey();
 }
+
+void Movement::SetIdleSpeed(float speed)
+{
+	m_owner->GetBody().SetSpeed(speed);
+	m_owner->GetTiny().SetIdleKey(true);
+}
+
+void Movement::SetWalkSpeed(float speed)
+{
+	m_owner->GetBody().SetSpeed(speed);
+	m_owner->GetTiny().SetMoveKey();
+}
+
+void Movement::SetJogSpeed(float speed)
+{
+	m_owner->GetBody().SetSpeed(speed);
+	m_owner->GetTiny().SetMoveKey();
+}

@@ -132,6 +132,12 @@
     <ClCompile Include="Source\Zombie.cpp">
       <Filter>GameObject\StateMachines</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Human.cpp">
+      <Filter>GameObject\StateMachines</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FeebleZombie.cpp">
+      <Filter>GameObject\StateMachines</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\body.h">
@@ -241,6 +247,12 @@
     </ClInclude>
     <ClInclude Include="Source\MultiAnimation.h" />
     <ClInclude Include="Source\Zombie.h">
+      <Filter>GameObject\StateMachines</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Human.h">
+      <Filter>GameObject\StateMachines</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FeebleZombie.h">
       <Filter>GameObject\StateMachines</Filter>
     </ClInclude>
   </ItemGroup>
