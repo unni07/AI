@@ -1,0 +1,20 @@
+Selectors
+	SelectorInOrder "Selector In Order"
+	SelectorRandom "Selector Random"
+	Sequencer "Sequencer"
+	SelectorParallel "Runs all children in parallel until any of them"
+Decorators
+	DecoratorInverter "Decorator Inverter"
+	DecoratorFailInverter "Inverts the child's output if the child failed."
+	DecoratorSucceedInverter "Inverts the child's output if the child failed."
+	DecoratorRunUntilFail "Continues running a node until the node fails"
+	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
+	DecoratorRunXTimes "Decorator Inverter"
+Leaves
+	PathToTarget "Walks the AI agent to a particular point."
+	SelectRandomTarget "Sets the AI agent's target position to a random point."
+	SelectFurthestTarget "Sets the target POS to the furthest AI agent."
+	Chase "Chase Feeble Zombie"
+	Convert "Chase Feeble Zombie"
+	Patrol "Chase Feeble Zombie"
+	Flee "Chase Feeble Zombie"

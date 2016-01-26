@@ -1,0 +1,1 @@
+DEFINE_DECORATOR_NODE(DecoratorRunXTimes, "Decorator Inverter", int x;)

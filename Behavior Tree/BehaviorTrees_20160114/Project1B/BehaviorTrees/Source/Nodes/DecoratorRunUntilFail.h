@@ -1,0 +1,1 @@
+DEFINE_DECORATOR_NODE(DecoratorRunUntilFail, "Continues running a node until the node fails", ;)

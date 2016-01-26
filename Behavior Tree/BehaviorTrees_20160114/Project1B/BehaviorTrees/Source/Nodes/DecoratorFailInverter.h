@@ -1,0 +1,1 @@
+DEFINE_DECORATOR_NODE(DecoratorFailInverter, "Inverts the child's output if the child failed.", ;)
