@@ -131,6 +131,7 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		npc->CreateBody( 100, pos );
 		npc->CreateMovement();
 		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
+		npc->GetMovement().SetWalkSpeed();
     npc->CreateBehaviorTree("HumanRoot");
 		g_database.Store( *npc );
 	}
