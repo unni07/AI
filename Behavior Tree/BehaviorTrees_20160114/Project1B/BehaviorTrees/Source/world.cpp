@@ -125,31 +125,32 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		char name[10] = "BTAgent";
 		sprintf( name, "%s%d", name, i );
 		GameObject* npc = new GameObject( g_database.GetNewObjectID(), OBJECT_Human, name );
-		D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-		pos.x = ((float)(rand()%100)) / 100.0f;
-		pos.z = ((float)(rand()%100)) / 100.0f;
+		D3DXVECTOR3 pos(1.0f, 0.0f, 0.0f);
+		//pos.x = ((float)(rand()%100)) / 100.0f;
+		//pos.z = ((float)(rand()%100)) / 100.0f;
 		npc->CreateBody( 100, pos );
 		npc->CreateMovement();
 		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
 		npc->GetMovement().SetWalkSpeed();
-    npc->CreateBehaviorTree("HumanRoot");
+		npc->CreateBehaviorTree("HumanRoot");
 		g_database.Store( *npc );
 	}
-  //for (int i = 10; i<12; i++)
-  //{
-  //  //Create game objects
-  //  char name[10] = "BTAgent";
-  //  sprintf(name, "%s%d", name, i);
-  //  GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
-  //  D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-  //  pos.x = ((float)(rand() % 100)) / 100.0f;
-  //  pos.z = ((float)(rand() % 100)) / 100.0f;
-  //  npc->CreateBody(100, pos);
-  //  npc->CreateMovement();
-  //  npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-  //  npc->CreateBehaviorTree("Sheep");
-  //  g_database.Store(*npc);
-  //}
+  for (int i = 0; i<1; i++)
+  {
+    //Create game objects
+    char name[10] = "BTAgent";
+    sprintf(name, "%s%d", name, i);
+    GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_FeebleZombie, name);
+    D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+    //pos.x = ((float)(rand() % 100)) / 100.0f;
+   // pos.z = ((float)(rand() % 100)) / 100.0f;
+    npc->CreateBody(100, pos);
+    npc->CreateMovement();
+    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
+    npc->CreateBehaviorTree("HumanRoot");
+	npc->GetMovement().SetIdleSpeed();
+    g_database.Store(*npc);
+  }
   //for (int i = 12; i<13; i++)
   //{
   //  //Create game objects

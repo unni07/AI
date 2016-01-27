@@ -1,3 +1,9 @@
-HumanRoot SelectorInOrder
-	TillZombieDetected DecoratorRunUntilFail
-		Patrol Leaf
+HumanRoot Sequencer
+	InvertFail DecoratorInverter
+		PatroltillZombieDetected DecoratorRunUntilFail
+			Patrol Leaf
+	CheckZombieType SelectorRandom
+		Chase Leaf
+		Flee Leaf
+	ChangeColor DecoratorRunXTimes
+		Convert Leaf

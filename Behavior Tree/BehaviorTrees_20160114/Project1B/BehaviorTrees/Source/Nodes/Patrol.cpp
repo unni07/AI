@@ -10,25 +10,22 @@ LEAF_UPDATE_FUNC(Patrol)
 	if (currentStatus == NS_OnEnter)
 	{
 		currentStatus = NS_Running;
-		
+
 	}
 	auto p = me->GetBody().GetPos();
-	//D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-	//me->GetBody().SetPos(pos);
-	
-	if (me->GetBody().GetPos().x >= 0.05f /*|| me->GetBody().GetPos().x >= -0.5f*/)
+	if (me->GetBody().GetPos().x >= 0.99f )
 	{
 		auto pos = me->GetBody().GetPos();
-		D3DXVECTOR3 newPos = { -0.6f, pos.y, pos.z };
+		D3DXVECTOR3 newPos = { 0.0f, pos.y, pos.z };
 		me->GetMovement().SetTarget(newPos);
 	}
-	if(me->GetBody().GetPos().x <= -0.5f /*|| me->GetBody().GetPos().x <= 0.5f*/)
+	if(me->GetBody().GetPos().x <= 0.05f )
 	{
 		auto pos = me->GetBody().GetPos();
-		D3DXVECTOR3 newPos = { 0.6f, pos.y, pos.z };
+		D3DXVECTOR3 newPos = { 1.0f, pos.y, pos.z };
 		me->GetMovement().SetTarget(newPos);
 	}
-	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 0.2f);
+	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 0.02f);
 	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, 0.2f);
 	if (feeble != NULL || zombie !=NULL)
 	{
