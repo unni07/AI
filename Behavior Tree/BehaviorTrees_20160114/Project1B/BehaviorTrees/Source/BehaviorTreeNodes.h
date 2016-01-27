@@ -21,5 +21,9 @@
 #include "Nodes/Convert.h"
 #include "Nodes/Patrol.h"
 #include "Nodes/Flee.h"
+#include "Nodes/Green.h"
+#include "Nodes/Red.h"
+#include "Nodes/EscapeRoute.h"
+#include "Nodes/SequenceRandomly.h"
 #include "utility.h"
 #endif

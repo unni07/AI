@@ -17,7 +17,7 @@ REGISTER_MESSAGE_NAME(MSG_CHANGE_STATE_DELAYED)			//Reserved message name
 REGISTER_MESSAGE_NAME(MSG_CHANGE_SUBSTATE_DELAYED)		//Reserved message name
 
 //Add new messages here
-
+REGISTER_MESSAGE_NAME(MSG_FLEE)
 
 //Used for Zombie and Human demo state machines
 REGISTER_MESSAGE_NAME(MSG_CheckTouch)

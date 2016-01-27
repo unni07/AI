@@ -1,0 +1,12 @@
+HumanRoot2 Sequencer
+	InvertResultPatrol DecoratorInverter
+		Patrol Leaf
+	Chase/Flee SelectorInOrder
+		Chase Leaf
+		RunAway SelectorParallel
+			Flee Leaf
+			EscapeRoute Leaf
+			ChangeColor DecoratorRunXTimes
+				RunRandomly SequenceRandomly
+					Green Leaf
+					Red Leaf

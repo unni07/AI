@@ -199,6 +199,18 @@
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
     <ClCompile Include="Source\utility.cpp" />
+    <ClCompile Include="Source\Nodes\SequenceRandomly.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\Green.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\Red.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\EscapeRoute.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\body.h">
@@ -365,6 +377,18 @@
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClInclude>
     <ClInclude Include="Source\utility.h" />
+    <ClInclude Include="Source\Nodes\SequenceRandomly.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Selector</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Green.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Red.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\EscapeRoute.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Source\DXUT\directx.ico">

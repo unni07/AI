@@ -25,11 +25,16 @@ LEAF_UPDATE_FUNC(Patrol)
 		D3DXVECTOR3 newPos = { 1.0f, pos.y, pos.z };
 		me->GetMovement().SetTarget(newPos);
 	}
-	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 0.02f);
-	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, 0.2f);
+	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 1.0f);
+	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, 0.1f);
 	if (feeble != NULL || zombie !=NULL)
 	{
 		currentStatus = NS_Failed;
+		if(zombie!=NULL && currentStatus == NS_Running)
+		{
+			MSG_Data data;
+			SendMsgDelayed(7.0f,MSG_FLEE, me->GetID(), me->GetID(), "Flee", "",data);
+		}
 	}
 	else
 		currentStatus = NS_Completed;

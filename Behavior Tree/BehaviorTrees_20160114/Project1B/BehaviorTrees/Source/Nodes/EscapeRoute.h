@@ -1,0 +1,1 @@
+DEFINE_LEAF_NODE(EscapeRoute, "Walks the AI agent to a particular point.", ;)

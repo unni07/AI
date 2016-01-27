@@ -132,7 +132,7 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		npc->CreateMovement();
 		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
 		npc->GetMovement().SetWalkSpeed();
-		npc->CreateBehaviorTree("HumanRoot");
+		npc->CreateBehaviorTree("HumanRoot2");
 		g_database.Store( *npc );
 	}
   for (int i = 0; i<1; i++)
@@ -140,14 +140,14 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
     //Create game objects
     char name[10] = "BTAgent";
     sprintf(name, "%s%d", name, i);
-    GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_FeebleZombie, name);
+    GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_Zombie, name);
     D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
     //pos.x = ((float)(rand() % 100)) / 100.0f;
    // pos.z = ((float)(rand() % 100)) / 100.0f;
     npc->CreateBody(100, pos);
     npc->CreateMovement();
     npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-    npc->CreateBehaviorTree("HumanRoot");
+    npc->CreateBehaviorTree("Sheep");
 	npc->GetMovement().SetIdleSpeed();
     g_database.Store(*npc);
   }
