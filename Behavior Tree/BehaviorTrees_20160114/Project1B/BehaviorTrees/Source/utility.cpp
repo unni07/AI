@@ -49,3 +49,15 @@ bool utility::isNear(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist)
 		(abs(pos.y - target.y) < nearDist) &&
 		(abs(pos.z - target.z) < nearDist);
 }
+
+float utility::isToNear(D3DXVECTOR3 &attacker, D3DXVECTOR3 &target, float nearDist)
+{
+
+	auto victimPosition = attacker;
+	auto myPosition = target;
+	auto vecDistance = victimPosition - myPosition;
+	float distance = D3DXVec3Length(&vecDistance);
+	if (distance == 0.0f)
+		int a = 10;
+	return distance;
+}

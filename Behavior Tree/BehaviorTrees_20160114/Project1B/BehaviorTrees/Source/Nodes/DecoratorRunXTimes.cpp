@@ -7,18 +7,20 @@ LOGIC_UPDATE_FUNC(DecoratorRunXTimes)
 	{
 		currentStatus = NS_Running;
 		m_currentChildIndex = 0;
-		x = 10;
+		x = 100;
 	}
 	else
 	{
-		if (x-- <= 0 )
+		if (x-- <= 0)
 		{
 			currentStatus = NS_Completed;
 		}
+		else
+			currentStatus = NS_Running;
 		if(currentStatus == NS_Completed)
 		{
 			GameObject * me = g_database.Find(self);
-			me->setType(OBJECT_Zombie);
+			//me->setType(OBJECT_Zombie);
 		}
 	}
 }

@@ -211,6 +211,21 @@
     <ClCompile Include="Source\Nodes\EscapeRoute.cpp">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Nodes\Wander.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\Check.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\ChaseHuman.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\Kill.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Nodes\DecoratorRunXseconds.cpp">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\body.h">
@@ -388,6 +403,21 @@
     </ClInclude>
     <ClInclude Include="Source\Nodes\EscapeRoute.h">
       <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Wander.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Check.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\ChaseHuman.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\Kill.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Nodes\DecoratorRunXseconds.h">
+      <Filter>GameEngine\BehaviorTreeFramework\Nodes\Decorator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

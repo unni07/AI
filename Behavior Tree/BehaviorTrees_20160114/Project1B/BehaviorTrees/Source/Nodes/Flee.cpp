@@ -12,6 +12,7 @@ LEAF_UPDATE_FUNC(Flee)
 	GameObject * me = g_database.Find(self);
 	if (currentStatus == NS_OnEnter)
 	{
+		me->GetMovement().SetJogSpeed();
 		radius = 0.02f;
 		currentStatus = NS_Running;
 		D3DXVECTOR3 target(0, 0, 0);

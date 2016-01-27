@@ -1,0 +1,8 @@
+ZombieRoot Sequencer
+	Wander/Check SelectorRandom
+		Wander Leaf
+		Check Leaf
+	ChaseThenKill Sequencer
+		ChaseForFewSconds DecoratorRunXseconds
+			ChaseHuman Leaf
+		Kill Leaf

@@ -81,7 +81,8 @@ enum NodeStatus
   NS_Failed,
   NS_Completed,
   NS_Running,
-  NS_OnEnter
+  NS_OnEnter,
+	NS_Temp
 };
 
 enum NodeType

@@ -35,7 +35,7 @@ LOGIC_UPDATE_FUNC(SequenceRandomly)
 		currentStatus = NS_Completed;
 	}
 	else
-		currentStatus = NS_Failed;
+		currentStatus = NS_Running;
 }
 END_LOGIC_UPDATE_FUNC
 

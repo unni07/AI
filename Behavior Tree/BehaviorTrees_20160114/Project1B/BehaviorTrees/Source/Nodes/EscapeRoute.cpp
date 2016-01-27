@@ -37,6 +37,13 @@ LEAF_UPDATE_FUNC(EscapeRoute)
   
   if (utility::isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
   {
+
+	  D3DXVECTOR3 target(0, 0, 0);
+	  target.x = (float)(rand() % 256) / 256.f;
+	  target.z = (float)(rand() % 256) / 256.f;
+	  me->SetTargetPOS(target);
+
+
 	  MSG_Data data;
 	  SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "", data);
   }

@@ -13,9 +13,11 @@ LEAF_UPDATE_FUNC(Red)
 	if (currentStatus == NS_OnEnter)
 	{
 		currentStatus = NS_Running;
-		
+		me->GetMovement().SetIdleSpeed();
+		counter = 0;
 	}
-	if(currentStatus == NS_Running)
+	counter++;
+	if(currentStatus == NS_Running && counter%4==0)
 	{
 		me->GetTiny().SetDiffuse(1.0f, 0.0f, 0.0f);
 		currentStatus = NS_Completed;

@@ -1,0 +1,1 @@
+DEFINE_DECORATOR_NODE(DecoratorRunXseconds, "Runs for x seconds", float x; float accumulator;)

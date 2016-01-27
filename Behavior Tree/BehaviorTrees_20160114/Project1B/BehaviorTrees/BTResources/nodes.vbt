@@ -3,6 +3,7 @@ Selectors
 	SelectorRandom "Selector Random"
 	Sequencer "Sequencer"
 	SelectorParallel "Runs all children in parallel until any of them"
+	SequenceRandomly "Sequence Random"
 Decorators
 	DecoratorInverter "Decorator Inverter"
 	DecoratorFailInverter "Inverts the child's output if the child failed."
@@ -10,6 +11,7 @@ Decorators
 	DecoratorRunUntilFail "Continues running a node until the node fails"
 	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
 	DecoratorRunXTimes "Decorator Inverter"
+	DecoratorRunXseconds "Runs for x seconds"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
 	SelectRandomTarget "Sets the AI agent's target position to a random point."
@@ -18,3 +20,10 @@ Leaves
 	Convert "Chase Feeble Zombie"
 	Patrol "Chase Feeble Zombie"
 	Flee "Chase Feeble Zombie"
+	Green "Chase Feeble Zombie"
+	Red "Chase Feeble Zombie"
+	Wander "Wander here and there"
+	Check "Chase Feeble Zombie"
+	ChaseHuman "Chase Feeble Zombie"
+	Kill "Chase Feeble Zombie"
+	EscapeRoute "Walks the AI agent to a particular point."

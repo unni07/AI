@@ -29,12 +29,13 @@ LEAF_UPDATE_FUNC(Patrol)
 	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, 0.1f);
 	if (feeble != NULL || zombie !=NULL)
 	{
-		currentStatus = NS_Failed;
-		if(zombie!=NULL && currentStatus == NS_Running)
+	
+		if(zombie!=NULL && currentStatus==NS_Running)
 		{
 			MSG_Data data;
-			SendMsgDelayed(7.0f,MSG_FLEE, me->GetID(), me->GetID(), "Flee", "",data);
+			SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "",data);
 		}
+		currentStatus = NS_Failed;
 	}
 	else
 		currentStatus = NS_Completed;
