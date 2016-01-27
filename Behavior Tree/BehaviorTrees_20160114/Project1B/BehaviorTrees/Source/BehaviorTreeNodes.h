@@ -15,6 +15,7 @@
 #include "Nodes/DecoratorRunUntilSucceed.h"
 #include "Nodes/DecoratorRunXTimes.h"
 #include "Nodes/DecoratorRunXseconds.h"
+#include "Nodes/DecoratorRunUntilMessage.h"
 #include "Nodes/PathToTarget.h"
 #include "Nodes/SelectRandomTarget.h"
 #include "Nodes/SelectFurthestTarget.h"
@@ -30,5 +31,7 @@
 #include "Nodes/Kill.h"
 #include "Nodes/EscapeRoute.h"
 #include "Nodes/SequenceRandomly.h"
+#include "Nodes/WalkToHuman.h"
+#include "Nodes/ReduceDistance.h"
 #include "utility.h"
 #endif
