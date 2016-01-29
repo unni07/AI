@@ -5,6 +5,8 @@
 
 GameObject * utility::findTargetinRadius(GameObject * me, unsigned int target, float radius)
 	 {
+		 if (me == NULL)
+			 return NULL;
 		 dbCompositionList listZombie;
 		 g_database.ComposeList(listZombie, target);
 		 dbCompositionList::iterator iter, iterEnd;

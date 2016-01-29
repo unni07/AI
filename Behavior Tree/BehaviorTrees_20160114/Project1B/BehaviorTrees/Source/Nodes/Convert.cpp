@@ -13,11 +13,14 @@ LEAF_UPDATE_FUNC(Convert)
 	GameObject * me = g_database.Find(self);
 	if(counter%2==0)
 	{
+		if(me != NULL)
 		me->GetTiny().SetDiffuse(0.0f, 1.0f, 0.0f);
 	}
 	else
+	{
+		if (me != NULL)
 		me->GetTiny().SetDiffuse(1.0f, 0.0f, 0.0f);
-
+	}
 }
 END_LEAF_UPDATE_FUNC
 

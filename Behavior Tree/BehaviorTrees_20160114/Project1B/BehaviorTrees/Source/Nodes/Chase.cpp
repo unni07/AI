@@ -16,8 +16,8 @@ LEAF_UPDATE_FUNC(Chase)
 		feebleZombie = NULL;
 		currentStatus = NS_Running;
 	
-		feebleZombie = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 1.0f);
-		if (feebleZombie != NULL)
+		feebleZombie = utility::findTargetinRadius(me, OBJECT_FeebleZombie, RADIUSTOFLEE);
+		if (feebleZombie != NULL && !feebleZombie->IsMarkedForDeletion())
 		{
 			me->GetMovement().SetJogSpeed();
 			me->GetMovement().SetTarget(feebleZombie->GetBody().GetPos());
@@ -25,11 +25,14 @@ LEAF_UPDATE_FUNC(Chase)
 		else
 			currentStatus = NS_Failed;
 	}
-	
-	if(currentStatus != NS_Completed && feebleZombie!=NULL)
+	feebleZombie = utility::findTargetinRadius(me, OBJECT_FeebleZombie, RADIUSTOFLEE);
+	if(currentStatus != NS_Completed && feebleZombie!=NULL && me!=NULL)
 	{
 		if(!feebleZombie->IsMarkedForDeletion())
 		{
+			auto body = me->GetBody();
+			auto m = feebleZombie->GetBody();
+			if(m.IsAlive())
 			me->GetMovement().SetTarget(feebleZombie->GetBody().GetPos());
 		}
 	}

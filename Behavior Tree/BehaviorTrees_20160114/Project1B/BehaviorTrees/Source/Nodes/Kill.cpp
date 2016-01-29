@@ -16,7 +16,7 @@ LEAF_UPDATE_FUNC(Kill)
 		human = NULL;
 		currentStatus = NS_Running;
 	
-		human = utility::findTargetinRadius(me, OBJECT_Human, 1.0f);
+		human = utility::findTargetinRadius(me, OBJECT_Human, RADIUSTOFLEE);
 	}
 	
 	if(currentStatus == NS_Running && human!=NULL)

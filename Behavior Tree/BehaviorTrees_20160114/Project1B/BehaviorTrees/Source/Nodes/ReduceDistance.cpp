@@ -16,15 +16,16 @@ LEAF_UPDATE_FUNC(ReduceDistance)
 		human = NULL;
 		currentStatus = NS_Running;
 	}
-	human = utility::findTargetinRadius(me, OBJECT_Human, 1.0f);
+	human = utility::findTargetinRadius(me, OBJECT_Human, RADIUSTOFLEE);
 	if (human != NULL)
 	{
 		if (!human->IsMarkedForDeletion())
 		{
 			me->GetMovement().SetTarget(human->GetBody().GetPos());
+			currentStatus = NS_Completed;
 		}
 		else
-			currentStatus = NS_Completed;
+			currentStatus = NS_Failed;
 	}
 	else
 		currentStatus = NS_Completed;

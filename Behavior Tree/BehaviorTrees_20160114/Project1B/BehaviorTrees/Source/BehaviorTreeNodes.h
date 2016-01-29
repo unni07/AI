@@ -34,4 +34,7 @@
 #include "Nodes/WalkToHuman.h"
 #include "Nodes/ReduceDistance.h"
 #include "utility.h"
+
+#define RADIUSTOFLEE 0.1
+#define RADIUSTOIDLE 0.01
 #endif

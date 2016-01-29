@@ -17,10 +17,10 @@ LEAF_UPDATE_FUNC(Check)
 		currentStatus = NS_Running;
 		initialize = false;
 	
-		human = utility::findTargetinRadius(me, OBJECT_Human, 1.0f);
+		human = utility::findTargetinRadius(me, OBJECT_Human, RADIUSTOFLEE + 0.2);
 		if (human != NULL)
 		{
-			me->GetMovement().SetJogSpeed();
+			//me->GetMovement().SetJogSpeed();
 			me->GetMovement().SetTarget(human->GetBody().GetPos());
 			currentStatus = NS_Completed;
 		}

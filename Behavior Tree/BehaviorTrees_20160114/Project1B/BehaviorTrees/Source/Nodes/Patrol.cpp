@@ -12,28 +12,30 @@ LEAF_UPDATE_FUNC(Patrol)
 		currentStatus = NS_Running;
 
 	}
-	auto p = me->GetBody().GetPos();
-	if (me->GetBody().GetPos().x >= 0.99f )
+	if (me != NULL)
 	{
-		auto pos = me->GetBody().GetPos();
-		D3DXVECTOR3 newPos = { 0.0f, pos.y, pos.z };
-		me->GetMovement().SetTarget(newPos);
+		if (me->GetBody().GetPos().x >= 0.99f)
+		{
+			auto pos = me->GetBody().GetPos();
+			D3DXVECTOR3 newPos = { 0.0f, pos.y, pos.z };
+			me->GetMovement().SetTarget(newPos);
+		}
+		if (me->GetBody().GetPos().x <= 0.05f)
+		{
+			auto pos = me->GetBody().GetPos();
+			D3DXVECTOR3 newPos = { 1.0f, pos.y, pos.z };
+			me->GetMovement().SetTarget(newPos);
+		}
 	}
-	if(me->GetBody().GetPos().x <= 0.05f )
-	{
-		auto pos = me->GetBody().GetPos();
-		D3DXVECTOR3 newPos = { 1.0f, pos.y, pos.z };
-		me->GetMovement().SetTarget(newPos);
-	}
-	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, 1.0f);
-	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, 0.1f);
+	auto feeble = utility::findTargetinRadius(me, OBJECT_FeebleZombie, RADIUSTOFLEE);
+	auto zombie = utility::findTargetinRadius(me, OBJECT_Zombie, RADIUSTOFLEE);
 	if (feeble != NULL || zombie !=NULL)
 	{
 	
 		if(zombie!=NULL && currentStatus==NS_Running)
 		{
 			MSG_Data data;
-			SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "",data);
+			//SendMsgDelayed(1.0f,MSG_FLEE, me->GetID(), me->GetID(), "Flee", "",data);
 		}
 		currentStatus = NS_Failed;
 	}

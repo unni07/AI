@@ -23,7 +23,7 @@ LEAF_UPDATE_FUNC(SelectFurthestTarget)
     if (timeAccumulator >waitTime)
     {
       GameObject *me = g_database.Find(self);
-      if (me)
+      if (me !=NULL)
       {
         objectID furthestAgent = GetFarthestAgent(self);
         D3DXVECTOR3 target = g_database.Find(furthestAgent)->GetBody().GetPos();

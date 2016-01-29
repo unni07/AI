@@ -1,0 +1,8 @@
+FeebleZombieRoot Sequencer
+	Walk/Check SelectorRandom
+		Wander Leaf
+		Check Leaf
+	ReduceDistanceCheck Sequencer
+		ReduceDistance Leaf
+		ChaseTillMessage DecoratorRunUntilMessage
+			WalkToHuman Leaf

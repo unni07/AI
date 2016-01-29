@@ -12,6 +12,7 @@ Decorators
 	DecoratorRunUntilSucceed "Continues running a node until the node succeeds"
 	DecoratorRunXTimes "Decorator Inverter"
 	DecoratorRunXseconds "Runs for x seconds"
+	DecoratorRunUntilMessage "Continues running a node until the node succeeds"
 Leaves
 	PathToTarget "Walks the AI agent to a particular point."
 	SelectRandomTarget "Sets the AI agent's target position to a random point."
@@ -27,3 +28,5 @@ Leaves
 	ChaseHuman "Chase Feeble Zombie"
 	Kill "Chase Feeble Zombie"
 	EscapeRoute "Walks the AI agent to a particular point."
+	WalkToHuman "Chase Feeble Zombie"
+	ReduceDistance "Chase Feeble Zombie"

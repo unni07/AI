@@ -30,11 +30,14 @@ LEAF_UPDATE_FUNC(Wander)
 		 currentStatus = NS_Failed;
 		
 	 }
-	 auto f = utility::isToNear(me->GetBody().GetPos(), me->GetTargetPOS());
-	if (utility::isToNear(me->GetBody().GetPos(), me->GetTargetPOS(),0.1f)<=0.1f || f>0.6f)
-	{
-		//currentStatus = NS_Running;
-	}
+	 if (me != NULL)
+	 {
+		 auto f = utility::isToNear(me->GetBody().GetPos(), me->GetTargetPOS());
+		 if (utility::isToNear(me->GetBody().GetPos(), me->GetTargetPOS(), 0.1f) <= 0.1f || f > 0.6f)
+		 {
+			 //currentStatus = NS_Running;
+		 }
+	 }
 }
 END_LEAF_UPDATE_FUNC
 

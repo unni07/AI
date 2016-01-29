@@ -166,10 +166,10 @@ void MsgRoute::SendMsg(float delay, MSG_Name name,
 				(*i)->IsTimer() == timer &&
 				(*i)->GetMsgData() == data)
 			{	//Already in list - don't add
-				ASSERTMSG(0, "MsgRoute::SendMsg - Message already in list. This assert is designed "
+			/*	ASSERTMSG(0, "MsgRoute::SendMsg - Message already in list. This assert is designed "
 					"to promote good coding practices. If you know what you're doing, you "
 					"can certainly remove this assert and have the engine silently ignore "
-					"redundant messages.");
+					"redundant messages.");*/
 				return;
 			}
 

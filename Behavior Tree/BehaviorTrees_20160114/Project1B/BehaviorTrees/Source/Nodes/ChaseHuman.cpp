@@ -16,10 +16,11 @@ LEAF_UPDATE_FUNC(ChaseHuman)
 		human = NULL;
 		currentStatus = NS_Running;
 	
-		human = utility::findTargetinRadius(me, OBJECT_Human, 1.0f);
+		human = utility::findTargetinRadius(me, OBJECT_Human, RADIUSTOFLEE +0.2 );
 		if (human != NULL)
 		{
 			//me->GetMovement().SetJogSpeed();
+			if(!human->IsMarkedForDeletion())
 			me->GetMovement().SetTarget(human->GetBody().GetPos());
 
 		}

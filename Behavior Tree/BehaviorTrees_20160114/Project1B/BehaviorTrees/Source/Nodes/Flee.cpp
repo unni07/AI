@@ -22,20 +22,27 @@ LEAF_UPDATE_FUNC(Flee)
 		//currentStatus = NS_Failed;
 		//me->GetMovement().SetJogSpeed();
 	}
-	GameObject * targetZombie = utility::findTargetinRadius(me, OBJECT_Zombie, 1.0f);
+	GameObject * targetZombie = utility::findTargetinRadius(me, OBJECT_Zombie, RADIUSTOFLEE);
 	if(currentStatus == NS_Running && targetZombie !=NULL)
 	{
 		/*D3DXVECTOR3 target(0, 0, 0);
 		target.x = (float)(rand() % 256) / 256.f;
 		target.z = (float)(rand() % 256) / 256.f;
 		me->SetTargetPOS(target);*/
-		currentStatus = NS_Failed;
+		//currentStatus = NS_Failed;
 	}
-	if(utility::distanceBetween(me,targetZombie) <= 1.0f)
+	if(utility::distanceBetween(me,targetZombie) <= RADIUSTOFLEE)
 	{
 		currentStatus = NS_Completed;
 	}
-
+	if (me != NULL && !me->IsMarkedForDeletion())
+	{
+		if (utility::isNear(me->GetTargetPOS(), me->GetBody().GetPos(), RADIUSTOFLEE + 0.1f))
+		{
+			MSG_Data data;
+			SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "", data);
+		}
+	}
 }
 END_LEAF_UPDATE_FUNC
 
@@ -44,13 +51,16 @@ NODE_MSG_RECEIVED(Flee)
 {
 	// Used for receiving messages
 	GameObject * me = g_database.Find(self);
-	if(name==MSG_FLEE)
+	if (me != NULL)
 	{
-		D3DXVECTOR3 target(0, 0, 0);
-		target.x = (float)(rand() % 256) / 256.f;
-		target.z = (float)(rand() % 256) / 256.f;
-		me->SetTargetPOS(target);
-		currentStatus = NS_Failed;
+		if (name == MSG_FLEE)
+		{
+			D3DXVECTOR3 target(0, 0, 0);
+			target.x = (float)(rand() % 256) / 256.f;
+			target.z = (float)(rand() % 256) / 256.f;
+			me->SetTargetPOS(target);
+			currentStatus = NS_Failed;
+		}
 	}
 }
 END_NODE_MSG_RECEIVED

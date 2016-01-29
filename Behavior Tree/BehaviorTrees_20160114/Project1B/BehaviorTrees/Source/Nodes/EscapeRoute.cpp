@@ -9,7 +9,7 @@
 LEAF_UPDATE_FUNC(EscapeRoute)
 {
   GameObject *me = g_database.Find(self);
-  GameObject * targetZombie = utility::findTargetinRadius(me, OBJECT_Zombie, 1.0f);
+  GameObject * targetZombie = utility::findTargetinRadius(me, OBJECT_Zombie, RADIUSTOFLEE);
   if (me)
   {
     if (currentStatus == NS_OnEnter)
@@ -21,7 +21,7 @@ LEAF_UPDATE_FUNC(EscapeRoute)
     else
     {
 		auto f = utility::distanceBetween(me, targetZombie);
-      if (utility::distanceBetween(me, targetZombie) <=0.01f)
+      if (utility::distanceBetween(me, targetZombie) <= RADIUSTOIDLE)
       {
         currentStatus = NS_Completed;
         me->GetMovement().SetIdleSpeed();
@@ -34,18 +34,20 @@ LEAF_UPDATE_FUNC(EscapeRoute)
   {
     currentStatus = NS_Failed;
   }
-  
-  if (utility::isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+  if (me != NULL && !me->IsMarkedForDeletion())
   {
+	  if (utility::isNear(me->GetBody().GetPos(), me->GetTargetPOS()))
+	  {
 
-	  D3DXVECTOR3 target(0, 0, 0);
-	  target.x = (float)(rand() % 256) / 256.f;
-	  target.z = (float)(rand() % 256) / 256.f;
-	  me->SetTargetPOS(target);
+		  D3DXVECTOR3 target(0, 0, 0);
+		  target.x = (float)(rand() % 256) / 256.f;
+		  target.z = (float)(rand() % 256) / 256.f;
+		  me->SetTargetPOS(target);
 
 
-	  MSG_Data data;
-	  SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "", data);
+		  MSG_Data data;
+		  SendMsg(MSG_FLEE, me->GetID(), me->GetID(), "Flee", "", data);
+	  }
   }
 }
 END_LEAF_UPDATE_FUNC

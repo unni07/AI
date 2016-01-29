@@ -16,7 +16,7 @@ bool isNear(D3DXVECTOR3 &pos, D3DXVECTOR3 &target, float nearDist = 1.f / 100.f)
 LEAF_UPDATE_FUNC(PathToTarget)
 {
   GameObject *me = g_database.Find(self);
-  if (me)
+  if (me !=NULL)
   {
     if (currentStatus == NS_OnEnter)
     {

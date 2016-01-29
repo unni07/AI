@@ -15,10 +15,12 @@ LEAF_UPDATE_FUNC(Red)
 		currentStatus = NS_Running;
 		me->GetMovement().SetIdleSpeed();
 		counter = 0;
+		me->GetMovement().SetIdleSpeed();
 	}
 	counter++;
 	if(currentStatus == NS_Running && counter%4==0)
 	{
+		if(me!=NULL)
 		me->GetTiny().SetDiffuse(1.0f, 0.0f, 0.0f);
 		currentStatus = NS_Completed;
 	}

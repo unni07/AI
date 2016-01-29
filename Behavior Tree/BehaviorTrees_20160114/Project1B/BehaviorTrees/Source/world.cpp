@@ -119,7 +119,7 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 
 #else
 
-	for( int i=0; i<1; i++ )
+	for( int i=0; i<5; i++ )
 	{
 		//Create game objects
 		char name[10] = "Human";
@@ -127,7 +127,7 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		GameObject* npc = new GameObject( g_database.GetNewObjectID(), OBJECT_Human, name );
 		D3DXVECTOR3 pos(1.0f, 0.0f, 0.0f);
 		//pos.x = ((float)(rand()%100)) / 100.0f;
-		//pos.z = ((float)(rand()%100)) / 100.0f;
+		pos.z = ((float)(rand()%100)) / 100.0f;
 		npc->CreateBody( 100, pos );
 		npc->CreateMovement();
 		npc->CreateTiny( pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f );	//Color if needed
@@ -135,37 +135,38 @@ void World::Initialize( CMultiAnim *pMA, std::vector< CTiny* > *pv_pChars, CSoun
 		npc->CreateBehaviorTree("HumanRoot2");
 		g_database.Store( *npc );
 	}
-  for (int i = 0; i<1; i++)
-  {
-    //Create game objects
-    char name[10] = "Zombie";
-    sprintf(name, "%s%d", name, i);
-    GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_Zombie, name);
-    D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-    //pos.x = ((float)(rand() % 100)) / 100.0f;
-   // pos.z = ((float)(rand() % 100)) / 100.0f;
-    npc->CreateBody(100, pos);
-    npc->CreateMovement();
-    npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-    npc->CreateBehaviorTree("ZombieRoot");
-	npc->GetMovement().SetWalkSpeed();
-    g_database.Store(*npc);
-  }
-  //for (int i = 12; i<13; i++)
-  //{
-  //  //Create game objects
-  //  char name[10] = "BTAgent";
-  //  sprintf(name, "%s%d", name, i);
-  //  GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_NPC, name);
-  //  D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
-  //  pos.x = ((float)(rand() % 100)) / 100.0f;
-  //  pos.z = ((float)(rand() % 100)) / 100.0f;
-  //  npc->CreateBody(100, pos);
-  //  npc->CreateMovement();
-  //  npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 1.0f);	//Color if needed
-  //  npc->CreateBehaviorTree("BadHunter");
-  //  g_database.Store(*npc);
-  //}
+	 for (int j = 0; j<2; j++)
+	 {
+	   //Create game objects
+	   char name[10] = "Zombie";
+	   sprintf(name, "%s%d", name, j);
+	   GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_Zombie, name);
+	   D3DXVECTOR3 pos(0.0f, 0.0f, 0.0f);
+	   pos.x = ((float)(rand() % 100)) / 100.0f;
+	   pos.z = ((float)(rand() % 100)) / 100.0f;
+	   npc->CreateBody(100, pos);
+	   npc->CreateMovement();
+	   npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 0.0f, 1.0f, 0.0f);	//Color if needed
+	   npc->CreateBehaviorTree("ZombieRoot");
+		npc->GetMovement().SetWalkSpeed();
+	   g_database.Store(*npc);
+	 }
+	for (int k = 0; k<3; k++)
+	{
+		//Create game objects
+		char name[10] = "FZombie";
+		sprintf(name, "%s%d", name, k);
+		GameObject* npc = new GameObject(g_database.GetNewObjectID(), OBJECT_FeebleZombie, name);
+		D3DXVECTOR3 pos(1.0f, 0.0f, 0.0f);
+		pos.x = ((float)(rand()%100)) / 100.0f;
+		pos.z = ((float)(rand()%100)) / 100.0f;
+		npc->CreateBody(100, pos);
+		npc->CreateMovement();
+		npc->CreateTiny(pMA, pv_pChars, pSM, dTimeCurrent, 1.0f, 1.0f, 0.0f);	//Color if needed
+		npc->GetMovement().SetWalkSpeed();
+		npc->CreateBehaviorTree("FeebleZombieRoot");
+		g_database.Store(*npc);
+	}
 #endif
 
 	}

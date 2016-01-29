@@ -1,1 +1,1 @@
-DEFINE_DECORATOR_NODE(DecoratorRunUntilMessage, "Continues running a node until the node succeeds", ;)
+DEFINE_DECORATOR_NODE(DecoratorRunUntilMessage, "Continues running a node until the node succeeds", bool status ;)
